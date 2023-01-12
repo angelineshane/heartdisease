@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Heart Disease Detector</title>
+      
+     <style>
+        body * {
+          display: block;
+        }
+      </style>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+      
+  </head>
+  <body>
+      <div class="p-6 m-6 shadow-lg bg-slate-100">
+          <h1 class="text-2xl text-center">Heart Prediction</h1>
+      
+    <form method="post" class="grid grid-flow-row-dense grid-cols-6">
+      <div class="p-2 col-span-2">
+        <label for="Age">Age</label>
+        <input class="w-full form-input rounded-md" type="number" name="Age" id="age" step="1" min="0">
+      </div>
+  
+      <div class="p-2 col-span-2">
+        <label for="RestingBP">Resting BP</label>
+        <input class="w-full form-input rounded-md" type="number" name="RestingBP" id="resting_bp" step="1"
+          min="0">
+      </div>
+  
+      <div class="p-2 col-span-2">
+        <label for="Cholesterol">Cholesterol</label>
+        <input class="w-full form-input rounded-md" type="number" name="Cholesterol" id="cholesterol"
+          step="1" min="0">
+      </div>
+  
+      <div class="p-2 col-span-2">
+        <label for="ChestPainType">Chest Pain Type</label>
+        <select class="w-full form-select rounded-md" name="ChestPainType" id="chest_pain_type">
+          <option value="ATA">ATA</option>
+          <option value="NAP">NAP</option>
+          <option value="ASY">ASY</option>
+          <option value="TA">TA</option>
+        </select>
+      </div>
+  
+      <div class="p-2 col-span-2">
+        <label for="RestingECG">Resting ECG</label>
+        <select class="w-full form-select rounded-md" name="RestingECG" id="resting_ecg">
+          <option value="Normal">Normal</option>
+          <option value="ST">ST</option>
+          <option value="LVH">LVH</option>
+        </select>
+      </div>
+  
+      <div class="p-2 col-span-2">
+        <label for="FastingBS">Fasting BS</label>
+        <select class="w-full form-select rounded-md" name="FastingBS" id="fasting_bs">
+          <option value="1">True</option>
+          <option value="0">False</option>
+        </select>
+      </div>
+  
+      <div class="p-2 col-span-2">
+        <label for="Sex">Sex</label>
+        <select class="w-full form-select rounded-md" name="Sex" id="gender">
+          <option value="M">Male</option>
+          <option value="F">Female</option>
+        </select>
+      </div>
+  
+      <div class="p-2 col-span-2">
+        <label for="ExerciseAngina">Exercise Angina</label>
+        <select class="w-full form-select rounded-md" name="ExerciseAngina" id="ExerciseAngina">
+          <option value="Y">Yes</option>
+          <option value="N">No</option>
+        </select>
+      </div>
+  
+      <div class="p-2 col-span-2">
+        <label for="ST_Slope">ST Slope</label>
+        <select class="w-full form-select rounded-md" name="ST_Slope" id="st_slope">
+          <option value="Up">Up</option>
+          <option value="Flat">Flat</option>
+          <option value="Down">Down</option>
+        </select>
+      </div>
+  
+      <div class="p-2 col-span-3">
+        <label for="Oldpeak">Old Peak</label>
+        <input class="w-full form-input rounded-md" type="number" name="Oldpeak" id="oldpeak" step="0.01">
+      </div>
+  
+      <div class="p-2 col-span-3">
+        <label for="MaxHR">Maximum Heart Rate</label>
+        <input class="w-full form-input rounded-md" type="number" name="MaxHR" id="max_hr" step="1" min="0">
+      </div>
+  
+      <div class="p-2 col-span-6 flex justify-center">
+        <button type="submit" class="justify-self-center rounded-full bg-cyan-400 w-1/3 text-white m-8 px-8 py-4">
+          Predict
+        </button>
+      </div>
+        
+    </form>
+       
+    {% if str_prediction %}
+    <h3 class="text-xl text-center w-full">
+      {{ str_prediction }}    
+    </h3>
+    {% endif %}
+          
+      </div>
+  </body>
+</html>
